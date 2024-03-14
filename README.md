@@ -1,9 +1,9 @@
 # EXPERIMENT-NO--03-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resistor
 
-# DATE :
-# NAME :
-# ROLLNUMBER :
-# DEPARTMENT
+# DATE : 14/03/2024
+# NAME : JAYA SURYAA K
+# ROLLNUMBER : 212222040060
+# DEPARTMENT : CSE
 ## AIM: 
 To interface an FSR(force sensitive resistor) and scale the output voltage obtained to pressure applied 
  
@@ -62,7 +62,9 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
 
 ### FIGURE-03 CIRCUIT DIAGRAM
-
+![WhatsApp Image 2024-03-14 at 21 33 27_257ab298](https://github.com/KjayasuryaaGkarunagaran/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/119476217/96c9828e-dae1-4f01-a8bf-3e88f21402be)
+### SCHEMATIC VIEW :
+![WhatsApp Image 2024-03-14 at 21 26 00_246fc5e4](https://github.com/KjayasuryaaGkarunagaran/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/119476217/93c97768-ce1e-4f5d-b0ae-643fad61f46b)
 
 
 ### PROCEDURE:
@@ -79,26 +81,59 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
 
 ### PROGRAM 
- *your roll no 
- * your name 
- * department and year 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+int LED=7;
 
-![image](https://user-images.githubusercontent.com/36288975/188804653-a3154e8e-2655-46f2-9dcd-f425dd1ba109.png)
+int FSR;
+
+void setup()
+
+{
+
+  pinMode(LED,OUTPUT);
+  
+  Serial.begin(9600);
+
+}
+
+void loop()
+
+{
+
+  FSR =analogRead(A0);
+  
+  Serial.print("Raw value=");
+  
+  Serial.println(FSR);
+  
+  delay(500);
+  
+  int m;
+  
+  m=map(FSR,0,159,0,10);
+  
+  Serial.print("mapped value=");
+  
+  Serial.print(m);
+  
+  if(FSR>50)
+  
+  
+  {
+  
+    digitalWrite(LED,LOW);
+    
+    delay(500);
+    
+    digitalWrite(LED,HIGH);
+    
+    delay(500);
+  }
+  
+}
+
+![WhatsApp Image 2024-03-14 at 21 33 27_04d6f5cd](https://github.com/KjayasuryaaGkarunagaran/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/119476217/5890e080-0497-4838-a45e-ac8281d28f05)
+### GRAPH ; COMPARISON OF APPLIED MAPPED FORCES
+![WhatsApp Image 2024-03-14 at 21 33 27_06c63c2e](https://github.com/KjayasuryaaGkarunagaran/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/119476217/7df3ca60-31f8-41f9-bf6b-e41418c7e614)
 
 
 ### TABLE -02 standard deviation table 
